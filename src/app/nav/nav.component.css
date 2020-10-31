@@ -1,0 +1,10 @@
+.navBar{
+    background: rgb(228, 124, 124);
+    height: 10vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.navTitle{
+    text-decoration: underline;
+}
