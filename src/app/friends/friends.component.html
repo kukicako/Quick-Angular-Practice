@@ -1,5 +1,6 @@
-<div>
-    <h1>{{friends.id}}</h1>
-    <h1>{{friends.name}}</h1>
-    <h1>This is one of your friends!</h1>
+<div class="friendsContainer">
+    <div class="friends" *ngFor="let friend of friends">
+        <h1>{{friend.id}}</h1>
+        <h1>{{friend.name}}</h1>
+    </div>
 </div>

@@ -1,0 +1,12 @@
+.friendsContainer{
+    background: rgb(151, 229, 155);
+    display:flex;
+    justify-content: space-between;
+}
+.friends{
+    /* border:1px solid black; */
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
