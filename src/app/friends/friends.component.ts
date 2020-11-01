@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FriendsService } from './friends.service'
+import { Component } from '@angular/core';
+// import { FriendsService } from './friends.service'
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 @Component({
     selector: 'p-friends',
@@ -7,19 +8,18 @@ import { FriendsService } from './friends.service'
     styleUrls: ['./friends.component.css']
     })
 
-export class FriendsComponent implements OnInit{
-    friends: FriendsService[] = []
-    errorMessage: string
-    
-    constructor(private FriendsService: FriendsService){
+export class FriendsComponent{
+    private friendUrl = 'https://covid-comprimise.herokuapp.com/company';
+    friends = [];
 
-    }
+    constructor(private http: HttpClient) {
+        this.http.get(this.friendUrl).toPromise().then(data => {
+            console.log(data)
 
-    ngOnInit(): void {
-        this.FriendsService.getFriends().subscribe({
-            next(friends) {this.friends = friends},
-            error(err) {this.errorMessage = err}
-        });
+            for (let id in data)
+                if (data.hasOwnProperty(id))
+                    this.friends.push(data[id])
+        })
     }
 
 }
