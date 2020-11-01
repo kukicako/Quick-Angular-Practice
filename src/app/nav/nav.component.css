@@ -8,3 +8,10 @@
 .navTitle{
     text-decoration: underline;
 }
+.here{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+}

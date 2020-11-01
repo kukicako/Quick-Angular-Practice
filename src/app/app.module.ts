@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavComponent} from './nav/nav.component';
 import { FriendsComponent } from './friends/friends.component'
+import { RouterModule } from '@angular/router'
 
 @NgModule({
   declarations: [
@@ -14,7 +15,11 @@ import { FriendsComponent } from './friends/friends.component'
   imports: [
     BrowserModule,
     //import http after browsermodule
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: 'friends', component: FriendsComponent},
+      {path: '**', redirectTo:'', pathMatch: 'full'}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
